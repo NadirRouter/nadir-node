@@ -40,8 +40,8 @@ import type {
   RecommendParams,
 } from "./types.js";
 
-const DEFAULT_BASE_URL = "https://api.getnadir.dev";
-const SDK_VERSION = "0.1.0";
+const DEFAULT_BASE_URL = "https://api.getnadir.com";
+const SDK_VERSION = "0.1.2";
 
 // ---------------------------------------------------------------------------
 // Client options
