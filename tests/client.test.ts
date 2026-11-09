@@ -26,7 +26,7 @@ describe("NadirClient construction", () => {
   it("should use default base URL", () => {
     const client = new NadirClient({ apiKey: "ndr_test" });
     // Access internal via any cast for testing
-    expect((client as any).baseURL).toBe("https://api.getnadir.dev");
+    expect((client as any).baseURL).toBe("https://api.getnadir.com");
   });
 
   it("should strip trailing slash from base URL", () => {
