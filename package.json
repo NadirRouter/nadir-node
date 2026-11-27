@@ -1,7 +1,7 @@
 {
   "name": "nadir-sdk",
-  "version": "0.1.1",
-  "description": "Official Node.js SDK for the Nadir LLM Router — intelligent model routing that cuts API costs 30-60%",
+  "version": "0.1.2",
+  "description": "Official Node.js SDK for the Nadir LLM router: picks the right model and effort for each request",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -36,9 +36,9 @@
     "ai",
     "sdk"
   ],
-  "author": "Nadir <support@getnadir.dev>",
+  "author": "Nadir <info@getnadir.com>",
   "license": "MIT",
-  "homepage": "https://getnadir.dev",
+  "homepage": "https://getnadir.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/NadirRouter/nadir-node"

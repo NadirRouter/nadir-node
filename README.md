@@ -1,6 +1,6 @@
 # Nadir Node.js SDK
 
-Official Node.js/TypeScript client for the [Nadir](https://getnadir.dev) LLM router — intelligent model routing that cuts API costs 30-60%.
+Official Node.js/TypeScript client for the [Nadir](https://getnadir.com) LLM router. Nadir picks the right model and effort for each request. Docs: [getnadir.com/docs](https://getnadir.com/docs).
 
 ## Installation
 
@@ -23,7 +23,7 @@ console.log(response.choices[0].message?.content);
 
 // See which model was selected and why
 console.log(response.nadir_metadata?.tier);             // "simple"
-console.log(response.nadir_metadata?.selected_model);   // "gpt-4o-mini"
+console.log(response.nadir_metadata?.selected_model);   // "claude-haiku-4-5"
 console.log(response.nadir_metadata?.complexity_score);  // 0.12
 ```
 
@@ -38,15 +38,6 @@ const stream = await client.chat.completions.create({
 for await (const chunk of stream) {
   process.stdout.write(chunk.choices[0]?.delta?.content ?? "");
 }
-```
-
-## Model Recommendation (no LLM call)
-
-```typescript
-const rec = await client.recommend({
-  prompt: "Explain quantum entanglement in detail",
-});
-console.log(rec);
 ```
 
 ## Advanced: Fallback & Routing Control
@@ -66,7 +57,7 @@ const response = await client.chat.completions.create({
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `NADIR_API_KEY` | API key (fallback if not passed to constructor) | — |
-| `NADIR_BASE_URL` | API base URL | `https://api.getnadir.dev` |
+| `NADIR_BASE_URL` | API base URL | `https://api.getnadir.com` |
 
 ## OpenAI Drop-in Compatibility
 
@@ -76,7 +67,7 @@ Nadir's API is OpenAI-compatible. You can also use the OpenAI SDK directly:
 import OpenAI from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://api.getnadir.dev/v1",
+  baseURL: "https://api.getnadir.com/v1",
   apiKey: "ndr_...",
 });
 
@@ -86,7 +77,7 @@ const response = await client.chat.completions.create({
 });
 ```
 
-The Nadir SDK adds typed access to routing metadata, recommendations, smart export, and clustering that the OpenAI SDK can't reach.
+The Nadir SDK adds typed access to the routing metadata (tier, selected model, complexity score) that the OpenAI SDK can't reach.
 
 ## Requirements
 
